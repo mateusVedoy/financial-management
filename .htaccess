@@ -1,0 +1,28 @@
+# Proteção de arquivos sensíveis
+<FilesMatch "^(config\.php|display_errors\.php|functions\.php|check_auth\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteção do diretório includes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Configurações de segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Desabilitar listagem de diretórios
+Options -Indexes
+
+# Configurações de PHP (se permitido)
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
