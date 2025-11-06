@@ -67,10 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+<body class="font-sans antialiased">
+    <div class="auth-page min-h-screen flex items-center justify-center">
         <div class="form-container">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Criar Conta</h2>
+            <h2 class="form-title">Criar Conta</h2>
+            <p class="form-subtitle">Comece a gerenciar suas finanças hoje</p>
 
             <!-- Exibe mensagens de feedback (erros ou sucesso) -->
             <?php echo $message; ?>
@@ -100,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
             <p class="text-center text-sm text-gray-600 mt-6">
                 Já tem uma conta?
-                <a href="index.php" class="font-medium text-blue-600 hover:text-blue-500">
+                <a href="index.php" class="auth-link">
                     Faça login aqui
                 </a>
             </p>

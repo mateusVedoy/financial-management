@@ -24,7 +24,7 @@ $user_email = htmlspecialchars($_SESSION['user_email']);
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-gray-100 font-sans antialiased">
+<body class="dashboard-page font-sans antialiased">
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -39,15 +39,35 @@ $user_email = htmlspecialchars($_SESSION['user_email']);
     <!-- Conteúdo da página -->
     <div class="main-container">
         <div class="card card-center">
+            <span class="welcome-icon">📊</span>
             <h2 class="text-3xl font-bold text-gray-800 mb-4">
-                Bem-vindo!
+                Bem-vindo ao seu Dashboard!
             </h2>
             <p class="text-lg text-gray-700 mb-2">
-                Olá, <span class="font-medium text-blue-600"><?php echo $user_email; ?></span>!
+                Olá, <span class="font-medium" style="color: #667eea;"><?php echo $user_email; ?></span>!
             </p>
-            <p class="text-gray-600">
+            <p class="text-gray-600 mb-6">
                 Você está logado no sistema. Em breve você poderá gerenciar suas receitas e despesas aqui.
             </p>
+            
+            <!-- Cards de estatísticas financeiras (placeholder) -->
+            <div class="financial-stats">
+                <div class="stat-card income">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
+                    <h3 style="font-weight: 600; color: #10b981; margin-bottom: 0.25rem;">Receitas</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                </div>
+                <div class="stat-card expense">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💸</div>
+                    <h3 style="font-weight: 600; color: #ef4444; margin-bottom: 0.25rem;">Despesas</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                    <h3 style="font-weight: 600; color: #3b82f6; margin-bottom: 0.25rem;">Saldo</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -28,10 +28,11 @@ $success_message = getSuccessMessage();
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+<body class="font-sans antialiased">
+    <div class="auth-page min-h-screen flex items-center justify-center">
         <div class="form-container">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
+            <h2 class="form-title">Login</h2>
+            <p class="form-subtitle">Acesse sua conta para gerenciar suas finanças</p>
 
             <!-- Exibe mensagens de erro ou sucesso -->
             <?php echo $error_message; ?>
@@ -56,7 +57,7 @@ $success_message = getSuccessMessage();
             </form>
             <p class="text-center text-sm text-gray-600 mt-6">
                 Não tem uma conta?
-                <a href="register.php" class="font-medium text-blue-600 hover:text-blue-500">
+                <a href="register.php" class="auth-link">
                     Registre-se aqui
                 </a>
             </p>
