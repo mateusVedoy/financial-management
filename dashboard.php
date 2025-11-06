@@ -8,10 +8,14 @@
 require 'config.php';
 require 'check_auth.php';
 require 'includes/functions.php';
+require 'includes/financial_functions.php';
 
 // Obtém dados do usuário logado
 $user_id = $_SESSION['user_id'];
 $user_email = htmlspecialchars($_SESSION['user_email']);
+
+// Obtém estatísticas rápidas (últimos 30 dias)
+$stats = getQuickStats($pdo, $user_id);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,26 +51,51 @@ $user_email = htmlspecialchars($_SESSION['user_email']);
                 Olá, <span class="font-medium" style="color: #667eea;"><?php echo $user_email; ?></span>!
             </p>
             <p class="text-gray-600 mb-6">
-                Você está logado no sistema. Em breve você poderá gerenciar suas receitas e despesas aqui.
+                Gerencie suas receitas e despesas de forma simples e eficiente.
             </p>
             
-            <!-- Cards de estatísticas financeiras (placeholder) -->
-            <div class="financial-stats">
+            <!-- Cards de estatísticas financeiras (últimos 30 dias) -->
+            <div class="financial-stats mb-6">
                 <div class="stat-card income">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
-                    <h3 style="font-weight: 600; color: #10b981; margin-bottom: 0.25rem;">Receitas</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                    <h3 style="font-weight: 600; color: #10b981; margin-bottom: 0.25rem;">Receitas (30 dias)</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: #10b981;">
+                        <?php echo formatCurrency($stats['receitas']); ?>
+                    </p>
                 </div>
                 <div class="stat-card expense">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">💸</div>
-                    <h3 style="font-weight: 600; color: #ef4444; margin-bottom: 0.25rem;">Despesas</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                    <h3 style="font-weight: 600; color: #ef4444; margin-bottom: 0.25rem;">Despesas (30 dias)</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">
+                        <?php echo formatCurrency($stats['despesas']); ?>
+                    </p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" style="border-left-color: <?php echo $stats['saldo'] >= 0 ? '#10b981' : '#ef4444'; ?>;">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
-                    <h3 style="font-weight: 600; color: #3b82f6; margin-bottom: 0.25rem;">Saldo</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">Em breve</p>
+                    <h3 style="font-weight: 600; color: #3b82f6; margin-bottom: 0.25rem;">Saldo (30 dias)</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: <?php echo $stats['saldo'] >= 0 ? '#10b981' : '#ef4444'; ?>;">
+                        <?php echo formatCurrency($stats['saldo']); ?>
+                    </p>
                 </div>
+            </div>
+
+            <!-- Ações rápidas -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                <a href="operation_create.php" class="card" style="text-align: center; text-decoration: none; transition: transform 0.2s; cursor: pointer; border: 2px solid #667eea;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">➕</div>
+                    <h3 style="font-weight: 600; color: #667eea; margin-bottom: 0.25rem;">Nova Operação</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Cadastrar receita ou despesa</p>
+                </a>
+                <a href="operation_list.php" class="card" style="text-align: center; text-decoration: none; transition: transform 0.2s; cursor: pointer; border: 2px solid #3b82f6;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">📋</div>
+                    <h3 style="font-weight: 600; color: #3b82f6; margin-bottom: 0.25rem;">Listar Operações</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Ver todas as operações</p>
+                </a>
+                <a href="financial_statement.php" class="card" style="text-align: center; text-decoration: none; transition: transform 0.2s; cursor: pointer; border: 2px solid #10b981;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">📊</div>
+                    <h3 style="font-weight: 600; color: #10b981; margin-bottom: 0.25rem;">Demonstrativo</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Balanço financeiro</p>
+                </a>
             </div>
         </div>
     </div>

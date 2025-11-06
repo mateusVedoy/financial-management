@@ -300,6 +300,84 @@ body.dashboard-page {
     text-decoration: underline;
 }
 
+/* Tabelas */
+.table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    background-color: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+table th {
+    padding: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    text-align: left;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table td {
+    padding: 0.75rem;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Cards de ação rápida */
+.action-card {
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-receita {
+    background-color: #dcfce7;
+    color: #10b981;
+}
+
+.badge-despesa {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+/* Select inputs */
+select.form-input {
+    cursor: pointer;
+}
+
 /* Responsividade */
 @media (max-width: 640px) {
     .form-container {
@@ -317,6 +395,19 @@ body.dashboard-page {
     
     .financial-stats {
         grid-template-columns: 1fr;
+    }
+    
+    table {
+        font-size: 0.875rem;
+    }
+    
+    table th,
+    table td {
+        padding: 0.5rem;
+    }
+    
+    .action-card {
+        margin-bottom: 1rem;
     }
 }
 

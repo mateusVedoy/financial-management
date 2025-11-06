@@ -99,7 +99,8 @@ function getSuccessMessage() {
     $messages = [
         'logged_out' => 'Você saiu com sucesso.',
         'registered' => 'Usuário registrado com sucesso! Você já pode fazer login.',
-        'logged_in' => 'Login realizado com sucesso!'
+        'logged_in' => 'Login realizado com sucesso!',
+        'created' => 'Operação financeira cadastrada com sucesso!'
     ];
     
     $msg = isset($messages[$message]) ? $messages[$message] : '';
