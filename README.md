@@ -1,4 +1,4 @@
-# PROJETO
+# Financial Management
 
 ## Rodando projeto
 
@@ -33,14 +33,27 @@ docker run --name php-env php-env:v1
 
     3. Clique em OK para abrir o projeto nesse diretório
 
+### 4. Configurando mysql
+    
+    1. Acesse o mysql via terminal com o comando ```mysql -u root -p```
 
+    2. Digite a senha de root para acessar o mysql
 
-## Instalando dependências
+    3. Rode os dados presentes no arquivo MYSQL_COMMANDS.sql
 
-comando: ``` composer require <nome-dependencia>```
+## Acessando web
 
-Depedências:
+Para acessar a interface web, apenas digite no seu navegador o endereço ```http://127.0.0.1:8000/financial-management/```
+que você será drecionado para tela de login
 
+## Gerenciando versões do projeto dentro e fora do container
+
+A cada versão fechada dentro do container, para que seja possível replicar as alterações no github para evitar perdas de configurações, é preciso rodar o comando abaixo dentro do diretório onde está o arquivo do projeto:
+
+```bash
+docker cp php-env:/var/www/html/financial-management .
 ```
-firebase/php-jwt
-```
+
+O comando acima vai permitir copiar todos os arquivos do projeto para máquina local.
+
+OBS: Poderia ser feito com git dentro do container mas para fins práticos, não o fiz
