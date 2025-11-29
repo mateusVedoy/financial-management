@@ -1,0 +1,203 @@
+<mxfile host="app.diagrams.net" modified="2025-11-29T15:00:00.000Z" agent="Gemini" version="20.8.2" type="device">
+  <diagram id="diagram1" name="Fluxos Detalhados">
+    <mxGraphModel dx="2500" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Swimlane Container -->
+        <mxCell id="container" value="" style="swimlane;startSize=0;horizontal=0;strokeWidth=1;fillColor=#f5f5f5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="2100" height="1100" as="geometry"/>
+        </mxCell>
+
+        <!-- 1. Fluxo de Login -->
+        <mxCell id="swimlane-login" value="1. Fluxo de Login" style="swimlane;startSize=20;horizontal=1;fontStyle=1;strokeColor=#333333;fillColor=#e3f2fd;" vertex="1" parent="container">
+          <mxGeometry y="0" width="2100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="login-start" value="Usuário Acessa o Sistema" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff9c4;" vertex="1" parent="swimlane-login">
+          <mxGeometry x="40" y="70" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-index" value="index.php (Página de Login)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="swimlane-login">
+          <mxGeometry x="260" y="75" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-process" value="login_process.php (Validação)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="swimlane-login">
+          <mxGeometry x="500" y="60" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-success" value="operation_list.php (Página de Operações)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="swimlane-login">
+          <mxGeometry x="760" y="40" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-fail" value="Retorna para index.php com erro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcdd2;" vertex="1" parent="swimlane-login">
+          <mxGeometry x="760" y="110" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-login-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-login" source="login-start" target="login-index">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-login-2" value="Envia formulário" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-login" source="login-index" target="login-process">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-login-3" value="Sucesso" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-login" source="login-process" target="login-success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-login-4" value="Falha" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-login" source="login-process" target="login-fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 2. Fluxo de Cadastro de Usuário -->
+        <mxCell id="swimlane-register" value="2. Fluxo de Cadastro de Usuário" style="swimlane;startSize=20;horizontal=1;fontStyle=1;strokeColor=#333333;fillColor=#e8f5e9;" vertex="1" parent="container">
+          <mxGeometry y="200" width="2100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="register-from-index" value="index.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="swimlane-register">
+          <mxGeometry x="40" y="75" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-page" value="register.php (Página de Registro)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="swimlane-register">
+          <mxGeometry x="260" y="75" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-submit" value="register.php (Processamento)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="swimlane-register">
+          <mxGeometry x="520" y="60" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-success" value="Redireciona para index.php com sucesso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#c8e6c9;" vertex="1" parent="swimlane-register">
+          <mxGeometry x="780" y="40" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-fail" value="Mostra erro na própria página" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcdd2;" vertex="1" parent="swimlane-register">
+          <mxGeometry x="780" y="110" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-register-1" value="Clica em 'Registrar'" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-register" source="register-from-index" target="register-page">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-register-2" value="Envia formulário" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-register" source="register-page" target="register-submit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-register-3" value="Sucesso" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-register" source="register-submit" target="register-success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-register-4" value="Falha" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-register" source="register-submit" target="register-fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 3. Fluxo de Geração de Operação Financeira -->
+        <mxCell id="swimlane-create-op" value="3. Fluxo de Geração de Operação Financeira" style="swimlane;startSize=20;horizontal=1;fontStyle=1;strokeColor=#333333;fillColor=#fff3e0;" vertex="1" parent="container">
+          <mxGeometry y="400" width="2100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="create-start" value="dashboard.php ou operation_list.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="swimlane-create-op">
+          <mxGeometry x="40" y="75" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="create-page" value="operation_create.php (Formulário)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="swimlane-create-op">
+          <mxGeometry x="340" y="75" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="create-process" value="operation_create.php (Processamento)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="swimlane-create-op">
+          <mxGeometry x="620" y="60" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="create-success" value="Redireciona para operation_list.php com sucesso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#c8e6c9;" vertex="1" parent="swimlane-create-op">
+          <mxGeometry x="920" y="75" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-create-1" value="Clica em 'Nova Operação'" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-create-op" source="create-start" target="create-page">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-create-2" value="Envia formulário" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-create-op" source="create-page" target="create-process">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-create-3" value="Sucesso" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-create-op" source="create-process" target="create-success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- 4. Fluxo de Listagem de Operações -->
+        <mxCell id="swimlane-list-op" value="4. Fluxo de Listagem de Operações Financeiras" style="swimlane;startSize=20;horizontal=1;fontStyle=1;strokeColor=#333333;fillColor=#fce4ec;" vertex="1" parent="container">
+          <mxGeometry y="600" width="2100" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="list-start" value="Acessa operation_list.php" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff9c4;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="40" y="90" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="list-page" value="operation_list.php" style="shape=display;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="280" y="95" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="list-filters" value="Aplica Filtros de Período (GET)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#dae8fc;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="540" y="40" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="list-function" value="financial_functions.php (getUserOperations)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="820" y="95" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="list-db" value="Banco de Dados" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="1120" y="95" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="list-display" value="Exibe Tabela de Operações e Totais" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#c8e6c9;" vertex="1" parent="swimlane-list-op">
+            <mxGeometry x="1300" y="95" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-list-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-start" target="list-page">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-list-2" value="Recarrega página" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-page" target="list-filters">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="400" y="75"/>
+                </Array>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-list-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-filters" target="list-page">
+            <mxGeometry relative="1" as="geometry">
+                 <Array as="points">
+                    <mxPoint x="640" y="130"/>
+                </Array>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-list-4" value="Chama função" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-page" target="list-function">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-list-5" value="Consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-function" target="list-db">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-list-6" value="Retorna dados" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-db" target="list-function">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="1170" y="190"/>
+                    <mxPoint x="930" y="190"/>
+                </Array>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-list-7" value="Retorna para renderizar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-list-op" source="list-function" target="list-display">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 5. Fluxo de Geração de Demonstrativo Financeiro -->
+        <mxCell id="swimlane-statement" value="5. Fluxo de Geração de Demonstrativo Financeiro" style="swimlane;startSize=20;horizontal=1;fontStyle=1;strokeColor=#333333;fillColor=#ede7f6;" vertex="1" parent="container">
+          <mxGeometry y="850" width="2100" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="stmt-start" value="operation_list.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="swimlane-statement">
+          <mxGeometry x="40" y="95" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="stmt-page" value="financial_statement.php" style="shape=display;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="swimlane-statement">
+          <mxGeometry x="300" y="95" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="stmt-function" value="financial_functions.php (calculateFinancialStatement)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;" vertex="1" parent="swimlane-statement">
+          <mxGeometry x="580" y="95" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="stmt-db" value="Banco de Dados" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;" vertex="1" parent="swimlane-statement">
+          <mxGeometry x="960" y="95" width="120" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="stmt-display" value="Exibe Resumo (Receitas, Despesas, Saldo) e Detalhamento por Categoria" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#c8e6c9;" vertex="1" parent="swimlane-statement">
+          <mxGeometry x="1160" y="85" width="360" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-stmt-1" value="Clica em 'Ver Demonstrativo'" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-statement" source="stmt-start" target="stmt-page">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-stmt-2" value="Chama função" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-statement" source="stmt-page" target="stmt-function">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-stmt-3" value="Consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-statement" source="stmt-function" target="stmt-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-stmt-4" value="Retorna dados" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-statement" source="stmt-db" target="stmt-function">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1020" y="190"/>
+              <mxPoint x="730" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-stmt-5" value="Retorna para renderizar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="swimlane-statement" source="stmt-function" target="stmt-display">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
