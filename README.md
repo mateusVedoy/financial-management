@@ -57,3 +57,7 @@ docker cp php-env:/var/www/html/financial-management .
 O comando acima vai permitir copiar todos os arquivos do projeto para máquina local.
 
 OBS: Poderia ser feito com git dentro do container mas para fins práticos, não o fiz
+
+## Documentação de fluxos
+
+Para acessar a descrição de cada fluxo do projeto, veja: [Docs](./docs/FLUXOS_APLICACAO.md)
