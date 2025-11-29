@@ -1,0 +1,59 @@
+A partir de agora quero que você desenvolva cmg a gestão de lançamento e visualização de receitas e despesas. Dado o que já temos implementado, abaixo trago considerações:
+
+penso que podemos trabalhar com as seguintes entidades de banco:
+
+Operação financeira
+- ID (PK)
+- Valor
+- Tipo (despesa/receita) - FK
+- Categoria - FK
+        - salário/mercado/vale alimentação/etc
+- Momento
+- Usuário FK
+
+Tipo financeiro (receita/despesa)
+- Descrição
+- Nome
+
+Categoria financeira
+- Nome
+- Descrição
+    OBS: deve ser separada em receita/despesa pois nem toda categoria pode ser de receita e despesa
+    
+    receita
+        salario
+        vale alimentação/refeição
+        investimentos
+        extra
+    despesa
+        alimentacao
+        saude
+        agua
+        luz
+        telefone
+        internet
+
+
+para categorias, tipo financeiro e categoria financeira vamos deixar valores fixos existentes no banco e que serão usados nos lançamentos. Nesse momento não haverá cadastro dessas entidades.
+
+OBS: Irei gerar as estruturas SQL para gerar as tabelas no banco então não se preocupe com isso. Apenas implemente as lógicas sabendo que as estruturas serão essas.
+
+Para as entidades de domínio, penso nas seguintes:
+
+Usuário (já implementado)
+- Serve para autenticar/autorizar usuário no sistema
+Operação financeira
+- Serve para cadastrar despesas/receitas
+Tipo financeiro
+- Serve para indicar se despesa ou receita
+Categoria financeira
+- Serve para categorizar natureza da operação financeira
+
+OBS: as entidades abaixo só existem em tempo de execução quando usuário solicitar ver seu demonstrativo financeiro para periodo
+
+Demonstrativo financeiro
+- Serve para compilar demonstrativo financeiro (balanço financeiro) de um usuário dado período de tempo escolhido.
+Estado financeiro
+- Lucro/prejuízo
+
+por fim, siga a identidade visual já criada por você anteriormente e evite ao máximo modificar as estruturas já feitas para autenticação de usuário, mas lembre-se de que essas novas implementações são obrigatórias de tertem validação de autenticação para poder realizar
