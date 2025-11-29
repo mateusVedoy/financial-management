@@ -10,7 +10,7 @@ require 'includes/functions.php';
 
 // Se o usuário já estiver logado, redireciona para o dashboard
 if (isAuthenticated()) {
-    redirect('dashboard.php');
+    redirect('operation_list.php');
 }
 
 // Obtém mensagens de erro e sucesso

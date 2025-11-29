@@ -44,7 +44,7 @@ try {
         $_SESSION['user_email'] = $user['email'];
         
         // Redireciona para a página protegida
-        redirect('dashboard.php');
+        redirect('operation_list.php');
     } else {
         // Falha no login (usuário não encontrado ou senha incorreta)
         redirect('index.php?error=invalid');

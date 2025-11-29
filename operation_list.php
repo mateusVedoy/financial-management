@@ -39,7 +39,6 @@ $totais = calculateFinancialStatement($pdo, $user_id, $start_date, $end_date);
         <div class="navbar-container">
             <h1 class="navbar-brand">Sistema de Gestão Financeira</h1>
             <div style="display: flex; gap: 0.5rem;">
-                <a href="dashboard.php" class="btn" style="background-color: rgba(255,255,255,0.2);">Dashboard</a>
                 <a href="logout.php" class="btn btn-danger">Sair</a>
             </div>
         </div>
