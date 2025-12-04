@@ -5,17 +5,13 @@
  * Encerra a sessão do usuário e redireciona para a página de login.
  */
 
-require 'config.php';
-require 'includes/functions.php';
+require __DIR__ . '/autoload.php';
+require __DIR__ . '/display_errors.php';
 
-// Limpa todas as variáveis de sessão
-$_SESSION = array();
-
-// Destrói a sessão
-if (session_status() === PHP_SESSION_ACTIVE) {
-    session_destroy();
+// Inicia sessão
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
-// Redireciona para a página de login com uma mensagem de sucesso
-redirect('index.php?message=logged_out');
-?>
+$controller = new \Interface\controllers\AuthController();
+$controller->logout();

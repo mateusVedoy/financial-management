@@ -8,7 +8,7 @@ Se for preciso gerar a imagem do zero:
 
 ```bash
 docker build -t php-env:v1 .
-docker run -d -p 8080:80 -p 3306:3306 --name php-env php-env:v1
+docker run -d -p 8081:80 -p 3306:3306 --name php-env php-env:v1
 ```
 
 Se já tiver a imagem contruída:
@@ -43,7 +43,7 @@ docker run --name php-env php-env:v1
 
 ## Acessando web
 
-Para acessar a interface web, apenas digite no seu navegador o endereço ```http://127.0.0.1:8000/financial-management/```
+Para acessar a interface web, apenas digite no seu navegador o endereço ```http://127.0.0.1:8081/financial-management/```
 que você será drecionado para tela de login
 
 ## Gerenciando versões do projeto dentro e fora do container
